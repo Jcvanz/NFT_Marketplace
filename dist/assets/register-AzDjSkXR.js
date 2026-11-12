@@ -1,0 +1,1 @@
+import{j as t}from"./index-DpzyPQOm.js";import{L as o}from"./LoginPage-BmmpgnJK.js";import"./circle-exclamation-point-FDNo6NKU.js";import"./loader-circle-CsCnI7Ij.js";const r=()=>t.jsx(o,{initialTab:"register"}),m=r;export{m as component};
