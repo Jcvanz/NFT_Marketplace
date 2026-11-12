@@ -203,7 +203,7 @@ export const ProfilePage: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto py-8 md:py-12 px-4 space-y-8 max-w-6xl pb-28 md:pb-32">
+    <div className="container mx-auto py-8 md:py-12 px-4 space-y-8 max-w-6xl pb-28 md:pb-12">
       {/* Grid com 2 colunas: Navegação à esquerda e Conteúdo à direita */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* MENU DE NAVEGAÇÃO */}

@@ -71,10 +71,10 @@ export const BottomNavBar: React.FC = () => {
 
   return (
     <>
-      {/* Barra de Navegação Estilo App Fixa Embaixo */}
+      {/* Barra de Navegação Estilo App Fixa Embaixo (Apenas Mobile) */}
       <nav
         aria-label="Navegação móvel"
-        className="fixed bottom-3 sm:bottom-4 left-0 right-0 z-40 flex justify-center pointer-events-none px-4"
+        className="fixed bottom-3 left-0 right-0 z-40 flex md:hidden justify-center pointer-events-none px-4"
       >
         <div className="relative w-full max-w-[420px] h-[58px] pointer-events-auto filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)]">
           <svg

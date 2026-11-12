@@ -54,7 +54,7 @@ export const HomePage: React.FC = () => {
   const currentPage = searchParams.page || 1;
 
   return (
-    <div className="container mx-auto py-6 md:py-10 px-4 space-y-14 pb-28 md:pb-32">
+    <div className="container mx-auto py-6 md:py-10 px-4 space-y-14 pb-28 md:pb-10">
       <HeroSection />
 
       <section id="catalogo" className="scroll-mt-20">
