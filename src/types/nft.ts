@@ -1,4 +1,15 @@
-export type NFTCategory = 'art' | 'collectibles' | 'gaming' | 'photography' | 'music';
+export type NFTCategory = 
+  | 'all'
+  | 'art'
+  | 'photography'
+  | 'music'
+  | '3d'
+  | 'collectibles'
+  | 'generative'
+  | 'gaming'
+  | 'subscriptions'
+  | 'utility'
+  | string;
 
 export type NFTSortBy = 
   | 'price_asc'
@@ -6,6 +17,8 @@ export type NFTSortBy =
   | 'recently_listed'
   | 'most_viewed'
   | 'highest_edition';
+
+export type NFTQuickFilter = 'all' | 'new' | 'releases' | 'trending';
 
 export interface NFTEdition {
   id: string;
@@ -34,6 +47,12 @@ export interface NFT {
     name: string;
   };
   priceEth: string; 
+  currency?: string;
+  network?: 'ethereum' | 'polygon' | 'solana';
+  isFeatured?: boolean;
+  isNew?: boolean;
+  isRelease?: boolean;
+  isTrending?: boolean;
   editions: NFTEdition[];
   currentEditionId: string;
   viewsCount: number;
@@ -46,7 +65,9 @@ export interface NFT {
 
 export interface NFTQueryParams {
   search?: string;
-  category?: NFTCategory | 'all';
+  category?: string;
+  network?: string;
+  quickFilter?: NFTQuickFilter;
   minPrice?: string;
   maxPrice?: string;
   sortBy?: NFTSortBy;
@@ -60,4 +81,6 @@ export interface NFTListResponse {
   page: number;
   limit: number;
   totalPages: number;
+  categoryCounts?: Record<string, number>;
+  networkCounts?: Record<string, number>;
 }

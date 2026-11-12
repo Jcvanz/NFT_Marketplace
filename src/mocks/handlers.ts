@@ -3,6 +3,7 @@ import { mockDb } from './db';
 import { getActiveScenario } from './scenarios';
 import { multiplyEth, addEth, subEth } from '../lib/eth';
 import { CartItem, CartQuote, Order, OrderItemSnapshot, OrderReceipt } from '../types';
+import { image1 } from '../assets';
 
 // Helper para extrair Bearer token do request
 function getAuthUser(request: Request) {
@@ -111,7 +112,7 @@ export const handlers = [
       name: body.name,
       email: body.email,
       handle: body.handle.startsWith('@') ? body.handle : `@${body.handle}`,
-      avatarUrl: `https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80`,
+      avatarUrl: image1,
     });
 
     const session = mockDb.createSession(newUser.id);
@@ -250,17 +251,36 @@ export const handlers = [
 
     const url = new URL(request.url);
     const search = url.searchParams.get('search')?.toLowerCase() || '';
-    const category = url.searchParams.get('category');
+    const category = url.searchParams.get('category')?.toLowerCase();
+    const network = url.searchParams.get('network')?.toLowerCase();
+    const quickFilter = url.searchParams.get('quickFilter');
     const minPrice = url.searchParams.get('minPrice');
     const maxPrice = url.searchParams.get('maxPrice');
     const sortBy = url.searchParams.get('sortBy') || 'recently_listed';
     const page = parseInt(url.searchParams.get('page') || '1', 10);
-    const limit = parseInt(url.searchParams.get('limit') || '8', 10);
+    const limit = parseInt(url.searchParams.get('limit') || '9', 10);
 
     const user = getAuthUser(request);
     const userFavs = user ? mockDb.getFavorites(user.id) : [];
 
-    let nfts = mockDb.getNFTs().map((nft) => ({
+    const allNfts = mockDb.getNFTs();
+
+    // Compute live counts across the whole catalog
+    const categoryCounts: Record<string, number> = {};
+    const networkCounts: Record<string, number> = {
+      ethereum: 0,
+      polygon: 0,
+      solana: 0,
+    };
+
+    allNfts.forEach((nft) => {
+      const cat = (nft.category || '').toLowerCase();
+      categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+      const net = (nft.network || 'ethereum').toLowerCase();
+      networkCounts[net] = (networkCounts[net] || 0) + 1;
+    });
+
+    let nfts = allNfts.map((nft) => ({
       ...nft,
       isFavorited: userFavs.includes(nft.id),
     }));
@@ -275,9 +295,25 @@ export const handlers = [
       );
     }
 
-    // Filtro por categoria
-    if (category && category !== 'all') {
-      nfts = nfts.filter((n) => n.category === category);
+    // Filtro por categoria / coleção
+    if (category && category !== 'all' && category !== 'todos') {
+      nfts = nfts.filter((n) => (n.category || '').toLowerCase() === category);
+    }
+
+    // Filtro por rede blockchain
+    if (network && network !== 'all') {
+      nfts = nfts.filter((n) => (n.network || 'ethereum').toLowerCase() === network);
+    }
+
+    // Quick filter no topo (todos, novos, lançamentos, em alta)
+    if (quickFilter) {
+      if (quickFilter === 'new') {
+        nfts = nfts.filter((n) => n.isNew);
+      } else if (quickFilter === 'releases') {
+        nfts = nfts.filter((n) => n.isRelease);
+      } else if (quickFilter === 'trending') {
+        nfts = nfts.filter((n) => n.isTrending);
+      }
     }
 
     // Filtro por faixa de preço
@@ -322,6 +358,8 @@ export const handlers = [
       page,
       limit,
       totalPages,
+      categoryCounts,
+      networkCounts,
     });
   }),
 

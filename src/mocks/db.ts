@@ -1,7 +1,8 @@
 import { NFT, User, CartItem, Order, Coupon, Wallet } from '../types';
 import { INITIAL_USERS, INITIAL_NFTS, INITIAL_COUPONS } from './fixtures';
+import { image1, getAssetImage } from '../assets';
 
-const DB_STORAGE_KEY = 'nft_mock_db_state_v1';
+const DB_STORAGE_KEY = 'nft_mock_db_state_v4';
 
 export interface MockDatabaseState {
   users: User[];
@@ -43,9 +44,25 @@ class MockDatabase {
   private loadState(): MockDatabaseState {
     if (typeof window === 'undefined') return getDefaultState();
     try {
+      localStorage.removeItem('nft_mock_db_state_v1');
+      localStorage.removeItem('nft_mock_db_state_v2');
+      localStorage.removeItem('nft_mock_db_state_v3');
       const stored = localStorage.getItem(DB_STORAGE_KEY);
       if (stored) {
-        return JSON.parse(stored);
+        const parsed: MockDatabaseState = JSON.parse(stored);
+        parsed.nfts = parsed.nfts.map((nft, idx) => ({
+          ...nft,
+          imageUrl: nft.imageUrl?.includes('unsplash') ? getAssetImage(idx) : nft.imageUrl,
+          creator: {
+            ...nft.creator,
+            avatarUrl: nft.creator.avatarUrl?.includes('unsplash') ? getAssetImage(idx) : nft.creator.avatarUrl,
+          },
+        }));
+        parsed.users = parsed.users.map((u, idx) => ({
+          ...u,
+          avatarUrl: u.avatarUrl?.includes('unsplash') ? getAssetImage(idx) : u.avatarUrl,
+        }));
+        return parsed;
       }
     } catch (e) {
       console.warn('Failed to load mock database from localStorage', e);
