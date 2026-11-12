@@ -203,7 +203,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
                   </button>
                 </div>
 
-                {/* Botão de esquecer senha */}
                 <div className="flex justify-end pt-0.5">
                   <button
                     type="button"
@@ -216,7 +215,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
                   </button>
                 </div>
 
-                {/* Botão "Entrar" cor #D28A4C */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -309,7 +307,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
                   </button>
                 </div>
 
-                {/* Botão "Criar conta" cor #D28A4C */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -328,7 +325,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
             </div>
           )}
 
-          {/* DIVISÓRIA: Borda direita e esquerda #3F2319 e "Ou continue com" */}
           <div className="relative flex items-center justify-center pt-2">
             <div className="flex-grow border-t border-[#3F2319]" />
             <span className="shrink-0 px-3 text-xs text-[#CFB28C] font-medium">
@@ -339,7 +335,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
 
           {/* BOTÕES DE LOGIN SOCIAL (GOOGLE E FACEBOOK) */}
           <div className="space-y-2.5">
-            {/* Continuar com o Google */}
             <button
               type="button"
               onClick={() => handleSocialAuth('Google')}
@@ -366,7 +361,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
               <span>Continuar com o Google</span>
             </button>
 
-            {/* Continuar com o Facebook */}
             <button
               type="button"
               onClick={() => handleSocialAuth('Facebook')}

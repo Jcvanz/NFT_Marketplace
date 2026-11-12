@@ -226,7 +226,7 @@ export const NFTDetailPage: React.FC = () => {
   return (
     <>
       <div className="container mx-auto py-6 md:py-12 px-4 space-y-12 pb-12">
-        {/* Botão de Voltar + Favoritar (fundo #2F1D15, ícone #B39463) */}
+        {/* Botão de Voltar + Favoritar */}
         <div className="flex mb-4 pt-0 md:hidden items-center justify-between w-full">
           <button
             type="button"
@@ -247,7 +247,6 @@ export const NFTDetailPage: React.FC = () => {
           </button>
         </div>
 
-      {/* 1. BREADCRUMB (Desktop e Tablet) */}
       <nav
         aria-label="Breadcrumb"
         className="hidden md:flex text-xs sm:text-sm font-medium text-[#CFB28C] items-center gap-2"
@@ -259,7 +258,7 @@ export const NFTDetailPage: React.FC = () => {
         <span className="text-[#F5F1EB]">Mercado</span>
       </nav>
 
-      {/* 2. GALERIA + INFORMAÇÕES DO PRODUTO */}
+      {/* GALERIA + INFORMAÇÕES DO PRODUTO */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Thumb vertical (4 imagens) + Imagem Grande Selecionada */}
         <div className="lg:col-span-6 flex flex-col-reverse sm:flex-row gap-4 items-stretch">
@@ -308,12 +307,10 @@ export const NFTDetailPage: React.FC = () => {
 
         {/* Informações do NFT */}
         <div className="lg:col-span-6 space-y-6">
-          {/* Nome do produto */}
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F5F1EB] tracking-tight">
             {nft.title}
           </h1>
 
-          {/* Valor e avaliações na mesma linha */}
           <div className="flex flex-wrap items-center justify-between gap-4">
             <span className="text-2xl sm:text-3xl font-black text-[#E89B55]">
               {formatEth(currentEdition?.priceEth || nft.priceEth)}
@@ -331,10 +328,8 @@ export const NFTDetailPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Borda fina na cor #D28A4C */}
           <div className="border-t border-[#D28A4C]" />
 
-          {/* Texto descritivo */}
           <div className="space-y-1.5">
             <h2 className="text-sm sm:text-base font-bold text-[#F5F1EB]">
               Sobre este NFT:
@@ -344,7 +339,6 @@ export const NFTDetailPage: React.FC = () => {
             </p>
           </div>
 
-          {/* Opção de edição (1/1, 1/10, 1/50, ABERTA) */}
           <div className="space-y-3">
             <span className="text-xs font-semibold uppercase tracking-wider text-[#CFB28C] block">
               Edição
@@ -372,7 +366,6 @@ export const NFTDetailPage: React.FC = () => {
 
           {/* Quantidade + Comprar + Favoritar (Desktop) */}
           <div className="hidden md:flex flex-wrap items-center justify-between gap-4 pt-2">
-            {/* Controle de quantidades: botões de - e + com height 50px e width 30px */}
             <div className="flex items-center gap-3">
               <button
                 type="button"
@@ -399,7 +392,6 @@ export const NFTDetailPage: React.FC = () => {
               </button>
             </div>
 
-            {/* Botões alinhados à direita: Comprar e Favoritar */}
             <div className="flex items-center gap-3 ml-auto">
               <button
                 type="button"
@@ -430,7 +422,6 @@ export const NFTDetailPage: React.FC = () => {
             </div>
           )}
 
-          {/* 3 textos em coluna: ID do token, Coleção, Atributos */}
           <div className="flex flex-col space-y-1.5 pt-2 text-xs sm:text-sm font-light text-[#B39463]">
             <span>
               ID do token: #{nft.id.replace(/\D/g, '').padStart(4, '0') || '0042'}
@@ -439,7 +430,6 @@ export const NFTDetailPage: React.FC = () => {
             <span>Atributos: Óculos, Esmeralda, Raro</span>
           </div>
 
-          {/* Compartilhar este NFT */}
           <div className="flex items-center gap-4 pt-2 text-sm text-[#F5F1EB]">
             <span className="font-medium">Compartilhar este NFT:</span>
             <div className="flex items-center gap-3">
@@ -502,7 +492,6 @@ export const NFTDetailPage: React.FC = () => {
 
       {/* Detalhes do NFT e Avaliações de colecionadores */}
       <section className="space-y-6 pt-4">
-        {/* Navegação entre os Tabs com borda #D28A4C dividindo do texto */}
         <div className="flex items-center gap-8 border-b border-[#D28A4C]">
           <button
             type="button"
@@ -598,7 +587,7 @@ export const NFTDetailPage: React.FC = () => {
         )}
       </section>
 
-      {/* 4. MAIS DESTA COLEÇÃO */}
+      {/* MAIS DESTA COLEÇÃO */}
       {relatedNfts.length > 0 && (
         <section className="space-y-6 pt-4">
           <h2 className="text-xl sm:text-2xl font-extrabold text-[#F5F1EB] pb-3 border-b border-[#E89B55] w-full">
@@ -630,11 +619,9 @@ export const NFTDetailPage: React.FC = () => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-              {/* Paginação renderizada explicitamente abaixo dos cards */}
               <div className="related-swiper-pagination" />
             </div>
           ) : (
-            /* Caso tenha até 5 itens, grid no desktop e swiper no mobile */
             <>
               <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-5 gap-5">
                 {relatedNfts.map((item) => (
@@ -659,7 +646,6 @@ export const NFTDetailPage: React.FC = () => {
                     </SwiperSlide>
                   ))}
                 </Swiper>
-                {/* Paginação renderizada explicitamente abaixo dos cards */}
                 <div className="related-swiper-pagination-mobile" />
               </div>
             </>
@@ -668,10 +654,9 @@ export const NFTDetailPage: React.FC = () => {
       )}
       </div>
 
-      {/* 5. BARRA FLUTUANTE FIXA EM BAIXO (APENAS MOBILE) */}
+      {/* BARRA FLUTUANTE FIXA EM BAIXO (APENAS MOBILE) */}
       <div className="md:hidden fixed bottom-0 inset-x-0 w-full z-50 bg-[#241612] border-t border-[#3F2319] rounded-t-[28px] p-4 shadow-[0_-8px_24px_rgba(0,0,0,0.6)] box-border">
         <div className="flex flex-col gap-3 max-w-lg mx-auto w-full">
-          {/* Linha 1: Quantidade + Valor */}
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <span className="text-xs font-semibold text-[#CFB28C]">Qtd.</span>
@@ -705,7 +690,6 @@ export const NFTDetailPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Linha 2: Botão "Comprar NFT" com flex-1 + Botão circular do carrinho */}
           <div className="flex items-center gap-2.5 w-full">
             <button
               type="button"
@@ -730,7 +714,7 @@ export const NFTDetailPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Modal de Zoom (Lightbox) ao clicar na lupa */}
+      {/* Modal de Zoom ao clicar na lupa */}
       {isZoomOpen && (
         <div
           className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in"

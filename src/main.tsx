@@ -9,16 +9,16 @@ import { WalletProvider } from './context/WalletContext';
 import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { routeTree } from './routeTree.gen';
 
-// Create TanStack Router instance with empty context placeholder
+// Cria instância do router TanStack
 export const router = createRouter({
   routeTree,
   context: {
-    auth: undefined!, // injected dynamically by InnerApp
+    auth: undefined!, // injetado dinamicamente por InnerApp
   },
   defaultPreload: 'intent',
 });
 
-// Register the router instance for type safety
+// Type safety
 declare module '@tanstack/react-router' {
   interface Register {
     router: typeof router;

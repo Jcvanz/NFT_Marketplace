@@ -23,12 +23,12 @@ export const DevToolsPanel: React.FC<{ isSocketConnected: boolean }> = ({ isSock
   };
 
   const handleSimulateNftPriceRise = () => {
-    // Simulates Socket.IO event updating NFT 1 price from 0.45 to 0.89 ETH
+    // Evento Socket.IO simulado atualizando preço do NFT 1 de 0.45 para 0.89 
     emitNftUpdated('nft-1', 'ed-1-standard', '0.89', 5);
   };
 
-  const handleSimulateSoldOut = () => {
-    // Simulates Socket.IO event making NFT 1 sold out
+  const handleSimulSoldOut = () => {
+    // Evento Simulates simulado tornando NFT 1 esgotado1 sold out
     emitNftUpdated('nft-1', 'ed-1-standard', '0.45', 0);
   };
 
@@ -50,7 +50,6 @@ export const DevToolsPanel: React.FC<{ isSocketConnected: boolean }> = ({ isSock
             </button>
           </div>
 
-          {/* Socket.IO status */}
           <div className="flex items-center justify-between py-1">
             <span className="text-muted-foreground flex items-center gap-1.5 font-medium">
               <Radio className="h-3.5 w-3.5" />
@@ -67,7 +66,6 @@ export const DevToolsPanel: React.FC<{ isSocketConnected: boolean }> = ({ isSock
             </span>
           </div>
 
-          {/* Scenario Selector */}
           <div className="space-y-1">
             <label className="font-semibold text-muted-foreground block">
               Cenário de Rede / Falha (MSW):
@@ -91,7 +89,6 @@ export const DevToolsPanel: React.FC<{ isSocketConnected: boolean }> = ({ isSock
             </select>
           </div>
 
-          {/* Real-time Socket Event Triggers */}
           <div className="space-y-2 border-t pt-3">
             <span className="font-semibold text-muted-foreground block flex items-center gap-1">
               <Sparkles className="h-3.5 w-3.5 text-primary" />
@@ -105,7 +102,7 @@ export const DevToolsPanel: React.FC<{ isSocketConnected: boolean }> = ({ isSock
                 Subir preço NFT #1 (0.89 ETH)
               </button>
               <button
-                onClick={handleSimulateSoldOut}
+                onClick={handleSimulSoldOut}
                 className="p-1.5 rounded-lg border bg-secondary hover:bg-secondary/80 font-medium text-[11px] text-center"
               >
                 Esgotar NFT #1 (Estoque 0)
@@ -113,7 +110,6 @@ export const DevToolsPanel: React.FC<{ isSocketConnected: boolean }> = ({ isSock
             </div>
           </div>
 
-          {/* Reset Database Button */}
           <div className="border-t pt-2">
             <button
               onClick={handleResetDb}

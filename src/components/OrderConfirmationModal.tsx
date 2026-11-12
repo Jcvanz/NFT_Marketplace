@@ -40,7 +40,6 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 bg-[#140D0A]/90 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto animate-in fade-in duration-200">
       <div className="relative w-full max-w-xl bg-[#241612] border border-[#3F2319] rounded-2xl shadow-2xl overflow-hidden flex flex-col my-auto">
-        {/* Botão fechar (X) no topo na direita na cor #D28A4C */}
         <button
           type="button"
           onClick={onClose}
@@ -52,7 +51,6 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
 
         {/* Conteúdo interno do modal */}
         <div className="p-5 sm:p-7 space-y-4 flex flex-col items-center">
-          {/* Ícone no topo centralizado */}
           <div className="flex justify-center pt-1">
             <svg
               width="80"
@@ -100,15 +98,12 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
             </svg>
           </div>
 
-          {/* Texto abaixo do ícone */}
           <p className="text-center text-xs sm:text-sm font-semibold text-[#CFB28C]">
             Seus NFTs agora estão na sua carteira
           </p>
 
-          {/* Componente com borda em cima e em baixo ocupando 100% da largura */}
           <div className="w-full border-y border-[#D28A4C] py-3.5 my-2">
             <div className="grid grid-cols-2 sm:grid-cols-4 divide-y-0 xs:divide-y-0 sm:divide-x divide-[#D28A4C] text-center gap-y-2 sm:gap-y-0">
-              {/* ID da transação */}
               <div className="px-2">
                 <span className="text-[10px] sm:text-[11px] text-[#CFB28C] block font-medium">
                   ID da transação
@@ -118,7 +113,6 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
                 </span>
               </div>
 
-              {/* Data */}
               <div className="px-2 pt-2 sm:pt-0">
                 <span className="text-[10px] sm:text-[11px] text-[#CFB28C] block font-medium">
                   Data
@@ -128,7 +122,6 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
                 </span>
               </div>
 
-              {/* Total */}
               <div className="px-2 pt-2 sm:pt-0">
                 <span className="text-[10px] sm:text-[11px] text-[#CFB28C] block font-medium">
                   Total
@@ -138,7 +131,6 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
                 </span>
               </div>
 
-              {/* Carteira */}
               <div className="px-2 pt-2 sm:pt-0">
                 <span className="text-[10px] sm:text-[11px] text-[#CFB28C] block font-medium">
                   Carteira
@@ -156,14 +148,12 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
               Detalhes da transação
             </h3>
 
-            {/* Tabs / Cabeçalho com borda inferior #D28A4C */}
             <div className="flex items-center justify-between text-xs font-bold text-[#CFB28C] pb-2 border-b border-[#D28A4C]">
               <span className="flex-1 min-w-0">NFTs</span>
               <span className="w-26 text-center">Edições</span>
               <span className="w-24 text-right">Subtotal</span>
             </div>
 
-            {/* Cards sem fundo (máximo 4 com scroll caso passe disso) */}
             <div
               className={`space-y-2.5 pr-1 divide-y divide-[#3F2319]/40 ${
                 order.items.length > 4 ? 'max-h-48 overflow-y-auto' : ''
@@ -181,7 +171,6 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
                     key={idx}
                     className="pt-2.5 first:pt-0 flex items-center justify-between gap-3 text-xs sm:text-sm"
                   >
-                    {/* Imagem + Nome e ID do token */}
                     <div className="flex items-center gap-3 flex-1 min-w-0">
                       <div className="w-10 h-10 sm:w-12 sm:h-12 aspect-square rounded-lg overflow-hidden shrink-0 border border-[#3F2319] bg-[#180E0C]">
                         <img
@@ -200,12 +189,10 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
                       </div>
                     </div>
 
-                    {/* Quantidade: (x 2) */}
                     <div className="w-20 text-center text-[#CFB28C] font-semibold text-xs sm:text-sm shrink-0">
                       (x {item.quantity})
                     </div>
 
-                    {/* Total */}
                     <div className="w-24 text-right font-extrabold text-[#E89B55] text-xs sm:text-sm shrink-0">
                       {formatEth(totalItem)}
                     </div>
@@ -214,7 +201,6 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
               })}
             </div>
 
-            {/* Em baixo dos cards: Taxa de rede, Total e borda #D28A4C para finalizar */}
             <div className="space-y-1.5 pt-3 border-t border-[#3F2319] text-xs sm:text-sm">
               <div className="flex justify-between items-center text-[#CFB28C]">
                 <span>Taxa de rede</span>
@@ -230,17 +216,14 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
                 </span>
               </div>
 
-              {/* Borda para finalizar #D28A4C */}
               <div className="w-full border-b border-[#D28A4C]" />
             </div>
           </div>
 
-          {/* Texto de informações na cor #CFB28C */}
           <p className="text-xs text-[#CFB28C] text-center leading-relaxed px-2">
             Transação confirmada na Ethereum. A propriedade foi transferida para sua carteira conectada e registrada na rede.
           </p>
 
-          {/* Botão de "Ver no Etherscan" cor #D28A4C, texto #140D0A */}
           <a
             href={displayExplorerUrl}
             target="_blank"

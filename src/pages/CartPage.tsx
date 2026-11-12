@@ -105,7 +105,6 @@ export const CartPage: React.FC = () => {
           items.length > 0 ? 'pb-10 lg:pb-20' : ''
         }`}
       >
-        {/* Botão de voltar arredondado + Título centralizado */}
         <div className="flex sm:hidden items-center justify-between relative w-full mb-5">
           <button
             type="button"
@@ -121,7 +120,6 @@ export const CartPage: React.FC = () => {
           <div className="w-10" />
         </div>
 
-        {/* 1. Breadcrumb (Início / Carrinho) - apenas em telas sm: e maiores */}
         <nav
           aria-label="Breadcrumb"
           className="hidden sm:flex text-xs sm:text-sm font-medium text-[#F5F1EB] items-center gap-2"
@@ -155,9 +153,8 @@ export const CartPage: React.FC = () => {
             </div>
           </div>
         ) : (
-          /* Layout com 2 colunas: Lista de produtos à esquerda e Resumo à direita */
+          /* Lista de produtos e Resumo  */
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-            {/* Lista de Produtos do Carrinho */}
             <div className="lg:col-span-8 space-y-4">
               <div className="hidden border-b border-[#D28A4C] pb-2 md:flex items-center justify-between gap-4 text-sm font-bold tracking-wider text-[#CFB28C] pr-4 sm:pr-6">
                 <div className="flex-1 min-w-0 pl-1">NFTs</div>
@@ -354,7 +351,7 @@ export const CartPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Resumo da Compra (Apenas Desktop: lg:block) */}
+            {/* Resumo da Compra (Apenas Desktop) */}
             <div className="hidden lg:block lg:col-span-4 pb-5 space-y-6">
               <div className="space-y-3">
                 <h2 className="text-lg sm:text-xl font-bold text-[#F7F3EC] tracking-wide">
@@ -427,7 +424,6 @@ export const CartPage: React.FC = () => {
                   </span>
                 </div>
 
-                {/* Taxa de rede com texto "taxa estimada" embaixo */}
                 <div className="flex justify-between items-start text-[#CFB28C]">
                   <div>
                     <span>Taxa de rede</span>
@@ -451,9 +447,7 @@ export const CartPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* No final dois botões em coluna */}
               <div className="space-y-3 pt-2">
-                {/* Primeiro: Conectar e finalizar */}
                 <button
                   type="button"
                   onClick={() => navigate({ to: '/checkout' })}
@@ -462,7 +456,6 @@ export const CartPage: React.FC = () => {
                   Conectar e finalizar
                 </button>
 
-                {/* Segundo: Continuar explorando */}
                 <Link
                   to="/"
                   className="w-full text-center py-2 text-sm font-semibold text-[#E89B55] hover:text-[#f3b074] transition-colors cursor-pointer block"
@@ -504,17 +497,15 @@ export const CartPage: React.FC = () => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-              {/* Paginação renderizada explicitamente abaixo dos cards */}
               <div className="cart-swiper-pagination" />
             </div>
           </section>
         )}
       </div>
 
-      {/* CAMPO FLUTUANTE FIXO NO MOBILE (< lg) */}
+      {/* CAMPO FLUTUANTE FIXO NO MOBILE */}
       {items.length > 0 && (
         <div className="fixed bottom-0 inset-x-0 z-40 bg-[#241612] border-t border-[#3F2319] rounded-4xl p-4 shadow-[0_-8px_24px_rgba(0,0,0,0.6)] lg:hidden space-y-3">
-          {/* Campo do cupom: input com border e bordas arredondadas (4xl) e o botão aplicar dentro do input */}
           <form onSubmit={handleApplyCoupon} className="relative w-full">
             <input
               type="text"
@@ -586,7 +577,6 @@ export const CartPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Botão de conectar e finalizar (cor #D28A4C e radius de 4xl) */}
           <button
             type="button"
             onClick={() => navigate({ to: '/checkout' })}

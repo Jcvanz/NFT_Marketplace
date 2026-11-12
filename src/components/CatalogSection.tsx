@@ -53,7 +53,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
   const [isSortOpen, setIsSortOpen] = useState(false);
   const sortRef = useRef<HTMLDivElement>(null);
 
-  // Close sort modal when clicking outside
+  // Fecha o modal de ordenação ao clicar fora  
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (sortRef.current && !sortRef.current.contains(event.target as Node)) {
@@ -64,8 +64,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const currentSortLabel =
-    SORT_OPTIONS.find((s) => s.value === selectedSortBy)?.label || 'Mais recentes';
+  const currentSortLabel = SORT_OPTIONS.find((s) => s.value === selectedSortBy)?.label || 'Mais recentes';
 
   // Item de destaque (o primeiro da lista ou null)
   const featuredNft = nfts.length > 0 ? nfts[0] : null;
@@ -73,7 +72,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
   return (
     <div className="flex flex-col lg:flex-row gap-8 items-start w-full">
 
-      {/* FILTROS + DESTAQUE (LARGURA ~35% NO DESKTOP, NO MOBILE VAI NO HEADER) */}
+      {/* FILTROS + DESTAQUE */}
       <aside className="hidden lg:block w-[25%] max-w-[330px] shrink-0 space-y-6">
         <div className="w-full bg-[#241612] rounded-[16px] p-6 border border-[#3F2319] shadow-xl space-y-6">
           <CatalogFilters
@@ -290,10 +289,9 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
           </div>
         )}
 
-        {/* PAGINAÇÃO AO FINAL ALINHADA À DIREITA: se não tiver páginas extras (totalPages <= 1), deixe sem */}
+        {/* PAGINAÇÃO: se não tiver páginas extras (totalPages <= 1), deixe sem */}
         {!isLoading && totalPages > 1 && (
           <div className="flex justify-end items-center gap-2 pt-2">
-            {/* Exibe até 4 páginas */}
             {Array.from({ length: Math.min(4, totalPages) }, (_, i) => i + 1).map((pageNum) => {
               const isSelected = page === pageNum;
               return (

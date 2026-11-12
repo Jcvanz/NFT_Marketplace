@@ -138,7 +138,6 @@ export const CheckoutPage: React.FC = () => {
 
   return (
     <div className="container mx-auto py-6 md:py-10 px-4 space-y-8">
-      {/* Inicio / mercado / pagamento */}
       <nav
         aria-label="Breadcrumb"
         className="text-xs sm:text-sm font-medium text-[#CFB28C] flex items-center gap-2"
@@ -162,7 +161,6 @@ export const CheckoutPage: React.FC = () => {
         </div>
       )}
 
-      {/* Grid com 2 colunas: Formulário à esquerda e Seus NFTs/Resumo à direita */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Form "Perfil do colecionador" */}
         <div className="lg:col-span-8 lg:pr-4 space-y-6">
@@ -172,7 +170,7 @@ export const CheckoutPage: React.FC = () => {
 
           <div className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Nome de exibição * */}
+              {/* Nome de exibição */}
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-[#CFB28C] block">
                   Nome de exibição <span className="text-[#F0805F]">*</span>
@@ -187,7 +185,7 @@ export const CheckoutPage: React.FC = () => {
                 />
               </div>
 
-              {/* Nome de usuário * */}
+              {/* Nome de usuário */}
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-[#CFB28C] block">
                   Nome de usuário <span className="text-[#F0805F]">*</span>
@@ -202,7 +200,7 @@ export const CheckoutPage: React.FC = () => {
                 />
               </div>
 
-              {/* Rede * (select) */}
+              {/* Rede */}
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-[#CFB28C] block">
                   Rede <span className="text-[#F0805F]">*</span>
@@ -238,7 +236,7 @@ export const CheckoutPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Endereço da carteira * e ao lado ENS ou carteira secundária (opcional) */}
+            {/* Endereço da carteira e ao lado ENS ou carteira secundária */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-[#CFB28C] block">
@@ -269,7 +267,7 @@ export const CheckoutPage: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Tipo de carteira * (select) */}
+              {/* Tipo de carteira */}
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-[#CFB28C] block">
                   Tipo de carteira <span className="text-[#F0805F]">*</span>
@@ -300,7 +298,7 @@ export const CheckoutPage: React.FC = () => {
                 />
               </div>
 
-              {/* E-mail * */}
+              {/* E-mail */}
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-[#CFB28C] block">
                   E-mail <span className="text-[#F0805F]">*</span>
@@ -315,7 +313,7 @@ export const CheckoutPage: React.FC = () => {
                 />
               </div>
 
-              {/* Nome ENS (select) */}
+              {/* Nome ENS */}
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-[#CFB28C] block">
                   Nome ENS
@@ -333,7 +331,7 @@ export const CheckoutPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Usar outra carteira? (checkbox) */}
+            {/* Usar outra carteira? */}
             <div className="flex items-center gap-2.5 pt-1">
               <input
                 type="checkbox"
@@ -350,7 +348,7 @@ export const CheckoutPage: React.FC = () => {
               </label>
             </div>
 
-            {/* Observação do colecionador (opcional) (textarea) */}
+            {/* Observação do colecionador */}
             <div className="space-y-1.5">
               <label className="text-xs font-semibold text-[#CFB28C] block">
                 Observação do colecionador (opcional)
@@ -372,7 +370,6 @@ export const CheckoutPage: React.FC = () => {
             <h2 className="text-xl sm:text-2xl font-bold text-[#F5F1EB]">
               Seus NFTs
             </h2>
-            {/* 2 itens em linha: NFTs e subtotal, separados por justify-between + borda separando */}
             <div className="flex items-center justify-between text-xs sm:text-sm font-semibold text-[#CFB28C] pb-2 border-b border-[#D28A4C]">
               <span>NFTs</span>
               <span>Subtotal</span>
@@ -398,7 +395,6 @@ export const CheckoutPage: React.FC = () => {
                     />
                   </div>
 
-                  {/* Nome #F5F1EB e ID do token #B39463 (em coluna) */}
                   <div className="min-w-0 flex-1 space-y-0.5">
                     <span className="text-xs sm:text-sm font-bold text-[#F5F1EB] truncate block">
                       {item.nft.title}
@@ -408,12 +404,10 @@ export const CheckoutPage: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* Quantidade: exibir apenas o número entre parênteses: (x 2) cor #CFB28C */}
                   <div className="shrink-0 text-xs sm:text-sm font-semibold text-[#CFB28C]">
                     (x {item.quantity})
                   </div>
 
-                  {/* Valor total cor #E89B55 */}
                   <div className="shrink-0 text-xs font-extrabold text-[#E89B55] text-right min-w-[70px]">
                     {formatEth(totalItemPrice)}
                   </div>
@@ -422,7 +416,6 @@ export const CheckoutPage: React.FC = () => {
             })}
           </div>
 
-          {/* Embaixo dos cards: texto promocional centralizado */}
           <div className="space-y-3">
             <div className="text-center">
               <button
@@ -556,7 +549,6 @@ export const CheckoutPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Botão de "Confirmar compra" cor #D28A4C */}
           <button
             type="button"
             disabled={isSubmitting || isQuoteLoading || items.length === 0}
@@ -575,7 +567,7 @@ export const CheckoutPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Modal de Confirmação de Pedido com overlay #140D0A */}
+      {/* Modal de Confirmação de Pedido */}
       <OrderConfirmationModal
         isOpen={isModalOpen}
         onClose={() => {

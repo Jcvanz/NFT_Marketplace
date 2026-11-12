@@ -10,9 +10,9 @@ export function useSocketReconciliation() {
   const { user } = useAuth();
   const [isConnected, setIsConnected] = useState(socket.connected);
 
-  // Version tracking map (resourceId -> latestVersion) to discard obsolete or duplicate events
+  // Versão do recurso para descartar eventos obsoletos ou duplicados
   const resourceVersions = useRef<Map<string, number>>(new Map());
-  // Processed event IDs set to prevent duplicate event effects
+  // IDs de eventos processados para evitar efeitos de eventos duplicados
   const processedEventIds = useRef<Set<string>>(new Set());
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export function useSocketReconciliation() {
       console.log('[Socket.IO] Desconectado. Tentando reconexão...');
     };
 
-    // Reconcile active resources with REST API upon reconnection (as mandated by README)
+    // Reconciliação de recursos ativos com REST API após reconexão     
     const handleReconnect = () => {
       setIsConnected(true);
       console.log('[Socket.IO] Reconectado! Reconciliando recursos ativos com REST API...');
@@ -35,15 +35,15 @@ export function useSocketReconciliation() {
       queryClient.invalidateQueries({ queryKey: ['orders'] });
     };
 
-    // 1. Handle nft.updated event
+    // Lida com o evento nft.updated
     const handleNftUpdated = (event: NFTUpdatedEvent) => {
-      // Deduplicate by eventId
+      // Deduplica por eventId
       if (processedEventIds.current.has(event.eventId)) {
         return;
       }
       processedEventIds.current.add(event.eventId);
 
-      // Check version monotonicity to avoid applying obsolete events
+      // Verifica a monotonicidade da versão para evitar a aplicação de eventos obsoletos
       const currentVersion = resourceVersions.current.get(event.data.nftId) || 0;
       if (event.version < currentVersion) {
         console.warn(`[Socket.IO] Evento obsoleto descartado para NFT ${event.data.nftId}: v${event.version} < v${currentVersion}`);
@@ -53,7 +53,7 @@ export function useSocketReconciliation() {
 
       const { nftId, editionId, newPriceEth, availableQuantity } = event.data;
 
-      // A) Update NFT detail in query cache if present
+      // Atualiza o detalhe do NFT no cache de consulta se presente
       queryClient.setQueryData<{ nft: any }>(queryKeys.nfts.detail(nftId), (oldData) => {
         if (!oldData) return oldData;
         const updatedEditions = oldData.nft.editions.map((ed: any) =>
@@ -72,10 +72,10 @@ export function useSocketReconciliation() {
         };
       });
 
-      // B) Invalidate catalog so lists reflect the update
+      // Invalida o catálogo para que as listas reflitam a atualização
       queryClient.invalidateQueries({ queryKey: queryKeys.nfts.all });
 
-      // C) Inspect cart: if item is in the cart, reflect price/availability change & invalidate quote
+      // Invalida o carrinho para que os itens reflitam a atualização
       queryClient.setQueryData<{ items: CartItem[] }>(queryKeys.cart, (oldCart) => {
         if (!oldCart || !oldCart.items) return oldCart;
 
@@ -102,7 +102,7 @@ export function useSocketReconciliation() {
         });
 
         if (hasChanges) {
-          // Invalidate quote to force user re-validation / prevent stale price checkout
+          // Invalida a cotação para forçar a revalidação pelo usuário / evitar checkout com preço obsoleto
           queryClient.invalidateQueries({ queryKey: ['quote'] });
         }
 
@@ -110,15 +110,15 @@ export function useSocketReconciliation() {
       });
     };
 
-    // 2. Handle order.updated event
+    // Handle order.updated event
     const handleOrderUpdated = (event: OrderUpdatedEvent) => {
-      // Discard duplicate events
+      // Descarta eventos duplicados
       if (processedEventIds.current.has(event.eventId)) {
         return;
       }
       processedEventIds.current.add(event.eventId);
 
-      // Prevent events from previous sessions or other users updating current user state
+      // Impede que eventos de sessões anteriores ou de outros usuários atualizem o estado do usuário atual
       if (user && event.data.userId !== user.id) {
         return;
       }
@@ -147,21 +147,21 @@ export function useSocketReconciliation() {
       });
     };
 
-    // Attach listeners
+    // Adiciona listeners
     socket.on('connect', handleConnect);
     socket.on('disconnect', handleDisconnect);
     socket.io.on('reconnect', handleReconnect);
     socket.on('nft.updated', handleNftUpdated);
     socket.on('order.updated', handleOrderUpdated);
 
-    // Also support custom browser events for test/dev dispatch
+    // Suporta eventos personalizados do navegador para despacho de teste/dev
     const handleBrowserNftUpdated = (e: CustomEvent) => handleNftUpdated(e.detail);
     const handleBrowserOrderUpdated = (e: CustomEvent) => handleOrderUpdated(e.detail);
 
     window.addEventListener('mock-socket-nft-updated' as any, handleBrowserNftUpdated);
     window.addEventListener('mock-socket-order-updated' as any, handleBrowserOrderUpdated);
 
-    // Clean up listeners on unmount (mandated by README)
+    // Limpa os listeners na desmontagem
     return () => {
       socket.off('connect', handleConnect);
       socket.off('disconnect', handleDisconnect);

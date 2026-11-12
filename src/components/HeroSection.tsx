@@ -47,7 +47,6 @@ export const HeroSection: React.FC = () => {
 
   return (
     <div className="w-full">
-      {/* Desktop Hero: Dois containers lado a lado */}
       <div className="hidden md:grid md:grid-cols-2 md:items-center md:gap-12 lg:gap-16 w-full py-4">
         <div className="flex flex-col items-start text-left space-y-6">
           <span className="text-sm font-light text-white tracking-widest uppercase">
@@ -111,7 +110,6 @@ export const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Hero: Card com os 2 containers e círculos dourados rotacionados */}
       <div className="block md:hidden w-full">
         <div className="relative w-full bg-[#241612] rounded-3xl p-4 sm:p-5 overflow-hidden shadow-xl">
           {/* Círculo 3: bem grande para a direita com cor fraquinha */}
@@ -124,7 +122,6 @@ export const HeroSection: React.FC = () => {
             aria-hidden="true"
           />
 
-          {/* Círculo 1: maior e à esquerda */}
           <div
             className="absolute -left-10 sm:-left-8 top-1/2 -translate-y-1/2 w-56 h-56 sm:w-64 sm:h-64 rounded-full pointer-events-none z-[1] -rotate-[100deg]"
             style={{
@@ -134,7 +131,6 @@ export const HeroSection: React.FC = () => {
             aria-hidden="true"
           />
 
-          {/* Círculo 2: ao centro um pouco por cima */}
           <div
             className="absolute left-22 sm:left-32 top-[60%] -translate-y-1/2 w-54 h-54 sm:w-48 sm:h-48 rounded-full pointer-events-none z-[2] rotate-[6deg]"
             style={{

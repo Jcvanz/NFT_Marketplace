@@ -47,7 +47,6 @@ export const WalletsPage: React.FC = () => {
         </button>
       </div>
 
-      {/* Add New Wallet Form modal/collapsible */}
       {showAddForm && (
         <form onSubmit={handleAddWallet} className="p-6 rounded-2xl border bg-card space-y-4 shadow-sm text-sm">
           <h2 className="font-bold text-base">Cadastrar Nova Carteira</h2>
@@ -119,7 +118,6 @@ export const WalletsPage: React.FC = () => {
         </form>
       )}
 
-      {/* Wallets List */}
       <div className="space-y-4">
         {wallets.map((w) => (
           <div

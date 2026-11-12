@@ -33,7 +33,7 @@ export const FooterComponent: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. FOOTER PRINCIPAL (Fundo #241612 com 4 separações) */}
+      {/* FOOTER PRINCIPAL */}
       <div className="w-full bg-[#241612] text-[#F5F1EB] border-t border-[#3F2319]">
         <div className="container mx-auto py-12 px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -161,13 +161,12 @@ export const FooterComponent: React.FC = () => {
 
             {/* Quarta Separação: Redes sociais e Carteiras compatíveis */}
             <div className="space-y-8 flex flex-col items-center text-center sm:items-start sm:text-left">
-              {/* Bloco 1: Redes sociais */}
+              {/* Redes sociais */}
               <div className="space-y-3">
                 <h4 className="font-bold text-base text-[#F5F1EB] tracking-wide">
                   Redes sociais
                 </h4>
                 <div className="flex items-center gap-3">
-                  {/* Facebook */}
                   <a
                     href="https://facebook.com"
                     target="_blank"
@@ -189,7 +188,6 @@ export const FooterComponent: React.FC = () => {
                     </svg>
                   </a>
 
-                  {/* Instagram */}
                   <a
                     href="https://instagram.com"
                     target="_blank"
@@ -213,7 +211,6 @@ export const FooterComponent: React.FC = () => {
                     </svg>
                   </a>
 
-                  {/* Twitter / X */}
                   <a
                     href="https://twitter.com"
                     target="_blank"
@@ -236,7 +233,6 @@ export const FooterComponent: React.FC = () => {
                     </svg>
                   </a>
 
-                  {/* LinkedIn */}
                   <a
                     href="https://linkedin.com"
                     target="_blank"
@@ -262,7 +258,7 @@ export const FooterComponent: React.FC = () => {
                 </div>
               </div>
 
-              {/* Bloco 2: Carteiras compatíveis */}
+              {/* Carteiras compatíveis */}
               <div className="space-y-3 flex flex-col items-center sm:items-start">
                 <h4 className="font-bold text-base text-[#F5F1EB] tracking-wide">
                   Carteiras compatíveis
@@ -280,7 +276,6 @@ export const FooterComponent: React.FC = () => {
         </div>
       </div>
 
-      {/* 3. TEXTO DE COPY (FORA do componente colorido #241612) */}
       <div className="w-full py-6 text-center">
         <p className="text-xs sm:text-sm text-[#F5F1EB] font-normal">
           © 2026 Kurio. Propriedade digital para todos.

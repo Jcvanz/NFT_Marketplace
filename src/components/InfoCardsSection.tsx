@@ -49,7 +49,6 @@ export const InfoCardsSection: React.FC = () => {
               />
             </div>
 
-            {/* Bloco 2: Textos e botão alinhados à direita */}
             <div className="w-full sm:w-1/2 p-6 flex flex-col justify-between items-end text-right">
               <div className="space-y-2">
                 <h3 className="text-lg sm:text-xl font-bold text-[#F5F1EB] tracking-wide">

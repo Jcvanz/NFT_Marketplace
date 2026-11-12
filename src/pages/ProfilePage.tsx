@@ -204,7 +204,6 @@ export const ProfilePage: React.FC = () => {
 
   return (
     <div className="container mx-auto py-8 md:py-12 px-4 space-y-8 max-w-6xl pb-28 md:pb-12">
-      {/* Grid com 2 colunas: Navegação à esquerda e Conteúdo à direita */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* MENU DE NAVEGAÇÃO */}
         <aside className="lg:col-span-4 bg-[#241612] border border-[#3F2319] rounded-2xl p-5 shadow-xl space-y-4">
@@ -212,7 +211,6 @@ export const ProfilePage: React.FC = () => {
             Meu perfil
           </h2>
 
-          {/* Lista de Itens de navegação */}
           <nav className="space-y-1">
             {navItems.map((item) => {
               const isSelected = activeTab === item.id;
@@ -239,7 +237,6 @@ export const ProfilePage: React.FC = () => {
               );
             })}
 
-            {/* Item: Sair com borda em cima #D28A4C */}
             <div className="pt-3 mt-2 border-t border-[#D28A4C]">
               <button
                 type="button"
@@ -421,7 +418,6 @@ export const ProfilePage: React.FC = () => {
                 </div>
               </form>
 
-              {/* BLOCO EM BAIXO PARA ALTERAR A SENHA */}
               <div className="pt-6 border-t border-[#3F2319] space-y-5">
                 <div className="space-y-1">
                   <h2 className="text-base sm:text-lg font-bold text-[#F5F1EB]">
@@ -534,7 +530,6 @@ export const ProfilePage: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Botão de salvar - cor #D28A4C, texto #140D0A */}
                   <div className="flex pt-2">
                     <button
                       type="submit"
@@ -557,7 +552,6 @@ export const ProfilePage: React.FC = () => {
           ) : activeTab === 'wallets' ? (
             /* ABA: CARTEIRAS */
             <div className="space-y-6">
-              {/* Topo: Carteira principal + botão "adicionar" na direita na cor #E89B55 */}
               <div className="space-y-2 pb-4">
                 <div className="flex items-center justify-between">
                   <h2 className="text-base sm:text-xl font-bold text-[#F5F1EB]">
@@ -620,7 +614,7 @@ export const ProfilePage: React.FC = () => {
                     />
                   </div>
 
-                  {/* Rede (select) */}
+                  {/* Rede */}
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-[#CFB28C] block">
                       Rede
@@ -665,7 +659,6 @@ export const ProfilePage: React.FC = () => {
                     />
                   </div>
 
-                  {/* Outro input com placeholder "ENS ou carteira secundária (opcional)" */}
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-[#CFB28C] block">
                       Carteira secundária / ENS
@@ -679,7 +672,7 @@ export const ProfilePage: React.FC = () => {
                     />
                   </div>
 
-                  {/* Tipo de carteira (select) */}
+                  {/* Tipo de carteira */}
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-[#CFB28C] block">
                       Tipo de carteira
@@ -724,7 +717,6 @@ export const ProfilePage: React.FC = () => {
                     />
                   </div>
 
-                  {/* Nome ENS (select com .eth, etc, e ao lado um input para preencher) */}
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-[#CFB28C] block">
                       Nome ENS
@@ -751,7 +743,6 @@ export const ProfilePage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Botão "Salvar carteira" */}
                 <div className="flex pt-2">
                   <button
                     type="submit"
@@ -765,7 +756,6 @@ export const ProfilePage: React.FC = () => {
               {/* COMPONENTE ABAIXO: CARTEIRA SECUNDÁRIA */}
               <div className="pt-6 border-t border-[#3F2319]">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                  {/* Primeiro bloco: Titulo Carteira secundária + texto Você ainda não adicionou uma carteira secundária. */}
                   <div className="space-y-1">
                     <h3 className="text-base font-bold text-[#F5F1EB]">
                       Carteira secundária
@@ -775,7 +765,6 @@ export const ProfilePage: React.FC = () => {
                     </p>
                   </div>
 
-                  {/* Segundo bloco: checkbox Igual à carteira principal + Adicionar na cor #E89B55 */}
                   <div className="flex items-center gap-2 shrink-0">
                     <label className="flex items-center gap-2 text-xs sm:text-sm text-[#F5F1EB] cursor-pointer select-none group">
                       <input

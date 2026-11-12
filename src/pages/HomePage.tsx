@@ -36,7 +36,7 @@ export const HomePage: React.FC = () => {
     maxPrice: searchParams.maxPrice,
     sortBy: searchParams.sortBy,
     page: searchParams.page,
-    limit: 9, // 3 linhas x 3 cards = 9
+    limit: 9, 
   });
 
   const updateSearch = (newParams: Record<string, any>, resetPage = true) => {

@@ -7,7 +7,6 @@ import {
   User,
   Scan,
   X,
-  Sparkles,
   Camera,
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
@@ -27,11 +26,9 @@ export const BottomNavBar: React.FC = () => {
 
   const searchObj = (location.search as Record<string, any>) || {};
   const isHomeActive = location.pathname === '/' && !location.hash;
-  const isWishlistActive =
-    location.pathname === '/profile' && searchObj.tab === 'wishlist';
+  const isWishlistActive = location.pathname === '/profile' && searchObj.tab === 'wishlist';
   const isCartActive = location.pathname === '/cart';
-  const isProfileActive =
-    location.pathname === '/profile' && searchObj.tab !== 'wishlist';
+  const isProfileActive = location.pathname === '/profile' && searchObj.tab !== 'wishlist';
 
   const handleHomeClick = () => {
     if (location.pathname === '/') {
@@ -71,7 +68,7 @@ export const BottomNavBar: React.FC = () => {
 
   return (
     <>
-      {/* Barra de Navegação Estilo App Fixa Embaixo (Apenas Mobile) */}
+      {/* Barra de Navegação Fixa Embaixo (Apenas Mobile) */}
       <nav
         aria-label="Navegação móvel"
         className="fixed bottom-3 left-0 right-0 z-40 flex md:hidden justify-center pointer-events-none px-4"
@@ -114,7 +111,7 @@ export const BottomNavBar: React.FC = () => {
           </button>
 
           <div className="absolute inset-0 flex items-center justify-between px-6">
-            {/* Home e Favoritos (Coração) */}
+            {/* Home e Favoritos */}
             <div className="flex items-center gap-7 sm:gap-9">
               <button
                 type="button"
@@ -243,7 +240,6 @@ export const BottomNavBar: React.FC = () => {
               }}
               className="w-full py-3 px-4 rounded-xl bg-[#D28A4C] hover:bg-[#c0793b] text-[#140D0A] font-bold text-sm tracking-wide transition-all shadow-md active:scale-[0.99] cursor-pointer flex items-center justify-center gap-2"
             >
-              <Sparkles className="w-4 h-4" />
               <span>Simular leitura de NFT</span>
             </button>
           </div>

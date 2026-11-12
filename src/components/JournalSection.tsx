@@ -46,7 +46,6 @@ const ARTICLES: Article[] = [
 export const JournalSection: React.FC = () => {
   const renderCard = (article: Article) => (
     <article className="group h-full bg-[#241612] rounded-[16px] border border-[#3F2319] overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-[#D28A4C]/50 hover:shadow-xl">
-      {/* Imagem no topo */}
       <div className="aspect-[16/10] w-full overflow-hidden bg-[#180E0C]">
         <img
           src={article.imageUrl}
@@ -56,10 +55,8 @@ export const JournalSection: React.FC = () => {
         />
       </div>
 
-      {/* Conteúdo textual */}
       <div className="p-4 sm:p-5 flex flex-col justify-between flex-1 space-y-3">
         <div className="space-y-2">
-          {/* Infos: data e tempo de leitura */}
           <span className="text-xs text-[#CFB28C] font-medium block">
             {article.info}
           </span>
@@ -68,13 +65,11 @@ export const JournalSection: React.FC = () => {
             {article.title}
           </h3>
 
-          {/* Mini descrição */}
           <p className="text-xs sm:text-sm text-[#CFB28C] line-clamp-2 leading-relaxed">
             {article.description}
           </p>
         </div>
 
-        {/* Botão de ler mais com uma flecha, sem fundo apenas na cor #E89B55 */}
         <div className="pt-2">
           <button
             type="button"
@@ -90,7 +85,6 @@ export const JournalSection: React.FC = () => {
 
   return (
     <section className="w-full pt-4 pb-14 space-y-8">
-      {/* Cabeçalho centralizado */}
       <div className="text-center space-y-2 max-w-2xl mx-auto px-4">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F5F1EB] tracking-tight">
           Diário da Cunhagem
@@ -100,7 +94,6 @@ export const JournalSection: React.FC = () => {
         </p>
       </div>
 
-      {/* Exibição Desktop: Grid com 4 cards lado a lado */}
       <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {ARTICLES.map((article) => (
           <div key={article.id} className="h-full">
@@ -109,7 +102,6 @@ export const JournalSection: React.FC = () => {
         ))}
       </div>
 
-      {/* Exibição Mobile: Carrossel com 1.25 itens por linha usando Swiper */}
       <div className="block md:hidden w-full overflow-hidden px-1">
         <Swiper
           slidesPerView={1.25}

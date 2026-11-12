@@ -79,7 +79,7 @@ export const CatalogFilters: React.FC<CatalogFiltersProps> = ({
 
   return (
     <div className="w-full space-y-6">
-      {/* 1. Primeiro Filtro: Coleção */}
+      {/* Primeiro Filtro: Coleção */}
       <div className="space-y-3">
         <h3 className="text-base font-bold text-[#F5F1EB] tracking-wide">Coleção</h3>
         <div className="flex flex-col space-y-2">
@@ -119,17 +119,14 @@ export const CatalogFilters: React.FC<CatalogFiltersProps> = ({
 
       <div className="border-t border-[#3F2319]" />
 
-      {/* 2. Segundo Filtro: Faixa de Preço com 2 bolinhas (min e max) */}
+      {/* Segundo Filtro: Faixa de Preço */}
       <div className="space-y-3">
         <h3 className="text-base font-bold text-[#F5F1EB] tracking-wide">Faixa de preço</h3>
 
         <div className="space-y-3 pt-2">
-          {/* Dual Range Slider com 2 bolinhas */}
           <div className="relative w-full h-5 flex items-center">
-            {/* Trilho de fundo escuro */}
             <div className="absolute w-full h-1.5 bg-[#3F2319] rounded-lg" />
 
-            {/* Trilho ativo entre min e max em #D28A4C */}
             <div
               className="absolute h-1.5 bg-[#D28A4C] rounded-lg"
               style={{
@@ -138,7 +135,6 @@ export const CatalogFilters: React.FC<CatalogFiltersProps> = ({
               }}
             />
 
-            {/* Input da 1ª bolinha (Min) */}
             <input
               type="range"
               min="0"
@@ -153,7 +149,6 @@ export const CatalogFilters: React.FC<CatalogFiltersProps> = ({
               aria-label="Preço mínimo"
             />
 
-            {/* Input da 2ª bolinha (Max) */}
             <input
               type="range"
               min="0"
@@ -169,7 +164,6 @@ export const CatalogFilters: React.FC<CatalogFiltersProps> = ({
             />
           </div>
 
-          {/* Informação textual de preço */}
           <div className="flex items-center justify-between text-xs text-[#CFB28C] font-medium pt-1">
             <span>
               Preço: {sliderMin.toFixed(2)} - {sliderMax.toFixed(2)} ETH
@@ -188,7 +182,7 @@ export const CatalogFilters: React.FC<CatalogFiltersProps> = ({
 
       <div className="border-t border-[#3F2319]" />
 
-      {/* 3. Terceiro Filtro: Rede */}
+      {/* Terceiro Filtro: Rede */}
       <div className="space-y-3">
         <h3 className="text-base font-bold text-[#F5F1EB] tracking-wide">Rede</h3>
         <div className="flex flex-col space-y-2">
