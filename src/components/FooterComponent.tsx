@@ -33,9 +33,7 @@ export const FooterComponent: React.FC = () => {
         </div>
       </div>
 
-      {/* ======================================================== */}
       {/* 2. FOOTER PRINCIPAL (Fundo #241612 com 4 separações) */}
-      {/* ======================================================== */}
       <div className="w-full bg-[#241612] text-[#F5F1EB] border-t border-[#3F2319]">
         <div className="container mx-auto py-12 px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -282,9 +280,7 @@ export const FooterComponent: React.FC = () => {
         </div>
       </div>
 
-      {/* ======================================================== */}
       {/* 3. TEXTO DE COPY (FORA do componente colorido #241612) */}
-      {/* ======================================================== */}
       <div className="w-full py-6 text-center">
         <p className="text-xs sm:text-sm text-[#F5F1EB] font-normal">
           © 2026 Kurio. Propriedade digital para todos.
@@ -293,4 +289,3 @@ export const FooterComponent: React.FC = () => {
     </footer>
   );
 };
-

@@ -268,7 +268,6 @@ export default function Header() {
           isMobileMenuOpen ? 'pointer-events-auto visible' : 'pointer-events-none invisible'
         }`}
       >
-        {/* Backdrop escuro */}
         <div
           onClick={() => setIsMobileMenuOpen(false)}
           className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${

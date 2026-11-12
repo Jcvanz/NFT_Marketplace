@@ -226,9 +226,7 @@ export const NFTDetailPage: React.FC = () => {
   return (
     <>
       <div className="container mx-auto py-6 md:py-12 px-4 space-y-12 pb-12">
-        {/* ======================================================== */}
-        {/* TOPO MOBILE: Botão de Voltar + Favoritar (fundo #2F1D15, ícone #B39463) */}
-        {/* ======================================================== */}
+        {/* Botão de Voltar + Favoritar (fundo #2F1D15, ícone #B39463) */}
         <div className="flex mb-4 pt-0 md:hidden items-center justify-between w-full">
           <button
             type="button"
@@ -249,9 +247,7 @@ export const NFTDetailPage: React.FC = () => {
           </button>
         </div>
 
-      {/* ======================================================== */}
       {/* 1. BREADCRUMB (Desktop e Tablet) */}
-      {/* ======================================================== */}
       <nav
         aria-label="Breadcrumb"
         className="hidden md:flex text-xs sm:text-sm font-medium text-[#CFB28C] items-center gap-2"
@@ -263,13 +259,10 @@ export const NFTDetailPage: React.FC = () => {
         <span className="text-[#F5F1EB]">Mercado</span>
       </nav>
 
-      {/* ======================================================== */}
       {/* 2. GALERIA + INFORMAÇÕES DO PRODUTO */}
-      {/* ======================================================== */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-        {/* LADO ESQUERDO: Thumb vertical (4 imagens) + Imagem Grande Selecionada */}
+        {/* Thumb vertical (4 imagens) + Imagem Grande Selecionada */}
         <div className="lg:col-span-6 flex flex-col-reverse sm:flex-row gap-4 items-stretch">
-          {/* Thumb em vertical exibindo 4 imagens do produto */}
           <div className="flex flex-row sm:flex-col gap-3 sm:w-26 lg:w-30 shrink-0">
             {gallery4.map((imgUrl, idx) => {
               const isSelected = selectedThumbIndex === idx;
@@ -294,7 +287,6 @@ export const NFTDetailPage: React.FC = () => {
             })}
           </div>
 
-          {/* Imagem Grande Selecionada com fundo #241612 e Lupa no canto superior direito */}
           <div className="flex-1 bg-[#241612] p-3 sm:p-4 rounded-[20px] border border-[#3F2319] shadow-2xl relative aspect-square overflow-hidden">
             <img
               src={displayImage}
@@ -302,7 +294,6 @@ export const NFTDetailPage: React.FC = () => {
               className="w-full h-full object-cover rounded-[16px]"
             />
 
-            {/* Botão de lupa na parte superior direita para ampliar */}
             <button
               type="button"
               onClick={() => setIsZoomOpen(true)}
@@ -315,7 +306,7 @@ export const NFTDetailPage: React.FC = () => {
           </div>
         </div>
 
-        {/* LADO DIREITO: Informações do NFT */}
+        {/* Informações do NFT */}
         <div className="lg:col-span-6 space-y-6">
           {/* Nome do produto */}
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F5F1EB] tracking-tight">
@@ -509,9 +500,7 @@ export const NFTDetailPage: React.FC = () => {
         </div>
       </div>
 
-      {/* ======================================================== */}
-      {/* 3. TABS: Detalhes do NFT e Avaliações de colecionadores */}
-      {/* ======================================================== */}
+      {/* Detalhes do NFT e Avaliações de colecionadores */}
       <section className="space-y-6 pt-4">
         {/* Navegação entre os Tabs com borda #D28A4C dividindo do texto */}
         <div className="flex items-center gap-8 border-b border-[#D28A4C]">
@@ -609,9 +598,7 @@ export const NFTDetailPage: React.FC = () => {
         )}
       </section>
 
-      {/* ======================================================== */}
       {/* 4. MAIS DESTA COLEÇÃO */}
-      {/* ======================================================== */}
       {relatedNfts.length > 0 && (
         <section className="space-y-6 pt-4">
           <h2 className="text-xl sm:text-2xl font-extrabold text-[#F5F1EB] pb-3 border-b border-[#E89B55] w-full">
@@ -681,9 +668,7 @@ export const NFTDetailPage: React.FC = () => {
       )}
       </div>
 
-      {/* ======================================================== */}
       {/* 5. BARRA FLUTUANTE FIXA EM BAIXO (APENAS MOBILE) */}
-      {/* ======================================================== */}
       <div className="md:hidden fixed bottom-0 inset-x-0 w-full z-50 bg-[#241612] border-t border-[#3F2319] rounded-t-[28px] p-4 shadow-[0_-8px_24px_rgba(0,0,0,0.6)] box-border">
         <div className="flex flex-col gap-3 max-w-lg mx-auto w-full">
           {/* Linha 1: Quantidade + Valor */}

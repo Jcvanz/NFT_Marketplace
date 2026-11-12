@@ -40,7 +40,6 @@ export const InfoCardsSection: React.FC = () => {
             key={idx}
             className="bg-[#241612] rounded-[16px] border border-[#3F2319] shadow-xl overflow-hidden flex flex-col sm:flex-row h-auto sm:h-64 transition-all duration-300 hover:border-[#D28A4C]/50 hover:shadow-2xl"
           >
-            {/* Bloco 1: Imagem ocupando 100% da altura */}
             <div className="w-full sm:w-1/2 h-52 sm:h-full shrink-0 relative overflow-hidden">
               <img
                 src={card.imageUrl}
@@ -76,4 +75,3 @@ export const InfoCardsSection: React.FC = () => {
     </section>
   );
 };
-

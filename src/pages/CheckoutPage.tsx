@@ -138,9 +138,7 @@ export const CheckoutPage: React.FC = () => {
 
   return (
     <div className="container mx-auto py-6 md:py-10 px-4 space-y-8">
-      {/* ======================================================== */}
-      {/* 1. BREADCRUMB: Inicio / mercado / pagamento */}
-      {/* ======================================================== */}
+      {/* Inicio / mercado / pagamento */}
       <nav
         aria-label="Breadcrumb"
         className="text-xs sm:text-sm font-medium text-[#CFB28C] flex items-center gap-2"
@@ -166,9 +164,7 @@ export const CheckoutPage: React.FC = () => {
 
       {/* Grid com 2 colunas: Formulário à esquerda e Seus NFTs/Resumo à direita */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* ======================================================== */}
-        {/* LADO ESQUERDO: Form "Perfil do colecionador" */}
-        {/* ======================================================== */}
+        {/* Form "Perfil do colecionador" */}
         <div className="lg:col-span-8 lg:pr-4 space-y-6">
           <h2 className="text-xl sm:text-2xl font-bold text-[#F5F1EB] pb-3 border-b border-[#3F2319]">
             Perfil do colecionador  
@@ -370,11 +366,8 @@ export const CheckoutPage: React.FC = () => {
           </div>
         </div>
 
-        {/* ======================================================== */}
-        {/* LADO DIREITO: Seus NFTs + Resumo + Carteiras */}
-        {/* ======================================================== */}
+        {/* Seus NFTs + Resumo + Carteiras */}
         <div className="lg:col-span-4 space-y-6">
-          {/* Título: Seus NFTs */}
           <div className="space-y-3">
             <h2 className="text-xl sm:text-2xl font-bold text-[#F5F1EB]">
               Seus NFTs
@@ -397,7 +390,6 @@ export const CheckoutPage: React.FC = () => {
                   key={item.id}
                   className="rounded-xl bg-[#241612] border border-[#3F2319] pr-4 flex items-center justify-between gap-3 shadow-md"
                 >
-                  {/* Imagem */}
                   <div className="w-14 h-14 sm:w-16 sm:h-16 aspect-square rounded-lg overflow-hidden bg-[#180E0C] shrink-0 border border-[#3F2319]">
                     <img
                       src={item.nft.imageUrl}
@@ -479,7 +471,6 @@ export const CheckoutPage: React.FC = () => {
               </div>
             )}
 
-            {/* Subtotal, Desconto do lançamento e Taxa de rede, Total */}
             <div className="space-y-2.5 pt-2 text-xs sm:text-sm">
               <div className="flex justify-between items-center text-[#CFB28C]">
                 <span>Subtotal</span>
@@ -518,9 +509,7 @@ export const CheckoutPage: React.FC = () => {
             </div>
           </div>
 
-          {/* ======================================================== */}
           {/* CARTEIRAS E REDE */}
-          {/* ======================================================== */}
           <div className="space-y-3 pt-4 border-t border-[#3F2319]">
             <h3 className="text-center font-bold text-sm sm:text-base text-[#F5F1EB]">
               Carteira e rede

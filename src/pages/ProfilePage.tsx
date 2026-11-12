@@ -67,9 +67,7 @@ export const ProfilePage: React.FC = () => {
     }
   }, [queryTab]);
 
-  // ==========================================================
   // Estados da aba "Dados do perfil"
-  // ==========================================================
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -91,9 +89,7 @@ export const ProfilePage: React.FC = () => {
   const [passwordFeedback, setPasswordFeedback] = useState<string | null>(null);
   const [passwordError, setPasswordError] = useState<string | null>(null);
 
-  // ==========================================================
   // Estados da aba "Carteiras"
-  // ==========================================================
   const [walletDisplayName, setWalletDisplayName] = useState('');
   const [walletNicknameField, setWalletNicknameField] = useState('Carteira Principal');
   const [walletNetwork, setWalletNetwork] = useState('ethereum');
@@ -210,11 +206,8 @@ export const ProfilePage: React.FC = () => {
     <div className="container mx-auto py-8 md:py-12 px-4 space-y-8 max-w-6xl pb-28 md:pb-32">
       {/* Grid com 2 colunas: Navegação à esquerda e Conteúdo à direita */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* ======================================================== */}
-        {/* LADO ESQUERDO: MENU DE NAVEGAÇÃO */}
-        {/* ======================================================== */}
+        {/* MENU DE NAVEGAÇÃO */}
         <aside className="lg:col-span-4 bg-[#241612] border border-[#3F2319] rounded-2xl p-5 shadow-xl space-y-4">
-          {/* Título: Meu perfil */}
           <h2 className="text-xl font-bold text-[#F5F1EB] text-left pb-3 border-b border-[#3F2319]">
             Meu perfil
           </h2>
@@ -260,16 +253,11 @@ export const ProfilePage: React.FC = () => {
           </nav>
         </aside>
 
-        {/* ======================================================== */}
-        {/* LADO DIREITO: CONTEÚDO DA ABA SELECIONADA */}
-        {/* ======================================================== */}
+        {/* CONTEÚDO DA ABA SELECIONADA */}
         <main className="lg:col-span-8 px-6 sm:px-8 space-y-8">
           {activeTab === 'profile' ? (
-            /* ======================================================== */
             /* ABA: DADOS DO PERFIL */
-            /* ======================================================== */
             <div className="space-y-8">
-              {/* Título alinhado na esquerda: Perfil do colecionador */}
               <div className="space-y-2">
                 <h1 className="text-base sm:text-xl font-bold text-[#F5F1EB] text-left">
                   Perfil do colecionador
@@ -299,7 +287,6 @@ export const ProfilePage: React.FC = () => {
                     Avatar
                   </label>
                   <div className="flex items-center gap-4 sm:gap-6 pt-1">
-                    {/* Círculo com a imagem ou ícone padrão */}
                     <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#180E0C] border-2 border-[#D28A4C] overflow-hidden flex items-center justify-center shrink-0 shadow-md">
                       {avatarUrl ? (
                         <img
@@ -316,7 +303,6 @@ export const ProfilePage: React.FC = () => {
                       )}
                     </div>
 
-                    {/* Dois botões do lado: Alterar e Remover */}
                     <div className="flex items-center gap-3">
                       <label className="px-4 py-2.5 rounded-lg bg-[#D28A4C] text-[#140D0A] font-extrabold text-xs uppercase tracking-wider hover:bg-[#c0793b] active:scale-95 transition-all shadow-md cursor-pointer flex items-center justify-center">
                         Alterar
@@ -435,9 +421,7 @@ export const ProfilePage: React.FC = () => {
                 </div>
               </form>
 
-              {/* ======================================================== */}
               {/* BLOCO EM BAIXO PARA ALTERAR A SENHA */}
-              {/* ======================================================== */}
               <div className="pt-6 border-t border-[#3F2319] space-y-5">
                 <div className="space-y-1">
                   <h2 className="text-base sm:text-lg font-bold text-[#F5F1EB]">
@@ -571,9 +555,7 @@ export const ProfilePage: React.FC = () => {
               </div>
             </div>
           ) : activeTab === 'wallets' ? (
-            /* ======================================================== */
             /* ABA: CARTEIRAS */
-            /* ======================================================== */
             <div className="space-y-6">
               {/* Topo: Carteira principal + botão "adicionar" na direita na cor #E89B55 */}
               <div className="space-y-2 pb-4">
@@ -780,9 +762,7 @@ export const ProfilePage: React.FC = () => {
                 </div>
               </form>
 
-              {/* ======================================================== */}
               {/* COMPONENTE ABAIXO: CARTEIRA SECUNDÁRIA */}
-              {/* ======================================================== */}
               <div className="pt-6 border-t border-[#3F2319]">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                   {/* Primeiro bloco: Titulo Carteira secundária + texto Você ainda não adicionou uma carteira secundária. */}
@@ -829,9 +809,7 @@ export const ProfilePage: React.FC = () => {
               </div>
             </div>
           ) : (
-            /* ======================================================== */
             /* DEMAIS ABAS: EM DESENVOLVIMENTO */
-            /* ======================================================== */
             <div className="py-16 px-4 text-center space-y-4 max-w-md mx-auto">
               <div className="w-16 h-16 rounded-2xl bg-[#180E0C] border border-[#3F2319] flex items-center justify-center mx-auto text-[#D28A4C] shadow-lg">
                 <Wrench className="h-8 w-8 animate-pulse" />

@@ -64,7 +64,6 @@ export const JournalSection: React.FC = () => {
             {article.info}
           </span>
 
-          {/* Título */}
           <h3 className="text-base sm:text-lg font-bold text-[#F5F1EB] line-clamp-2 leading-snug group-hover:text-[#E89B55] transition-colors">
             {article.title}
           </h3>
@@ -129,4 +128,3 @@ export const JournalSection: React.FC = () => {
     </section>
   );
 };
-

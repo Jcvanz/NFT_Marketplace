@@ -105,9 +105,7 @@ export const CartPage: React.FC = () => {
           items.length > 0 ? 'pb-10 lg:pb-20' : ''
         }`}
       >
-        {/* ======================================================== */}
-        {/* TOPO MOBILE: Botão de voltar arredondado + Título centralizado */}
-        {/* ======================================================== */}
+        {/* Botão de voltar arredondado + Título centralizado */}
         <div className="flex sm:hidden items-center justify-between relative w-full mb-5">
           <button
             type="button"
@@ -159,11 +157,8 @@ export const CartPage: React.FC = () => {
         ) : (
           /* Layout com 2 colunas: Lista de produtos à esquerda e Resumo à direita */
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-            {/* ======================================================== */}
-            {/* LADO ESQUERDO: Lista de Produtos do Carrinho */}
-            {/* ======================================================== */}
+            {/* Lista de Produtos do Carrinho */}
             <div className="lg:col-span-8 space-y-4">
-              {/* Tab de informações em linha (Desktop) */}
               <div className="hidden border-b border-[#D28A4C] pb-2 md:flex items-center justify-between gap-4 text-sm font-bold tracking-wider text-[#CFB28C] pr-4 sm:pr-6">
                 <div className="flex-1 min-w-0 pl-1">NFTs</div>
                 <div className="flex items-center justify-end gap-4 sm:gap-6 shrink-0">
@@ -174,7 +169,6 @@ export const CartPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Lista dos cards dos NFTs */}
               <div className="space-y-4">
                 {items.map((item) => {
                   const hasAlert = item.hasPriceChanged || item.hasAvailabilityChanged;
@@ -191,9 +185,7 @@ export const CartPage: React.FC = () => {
                         hasAlert ? 'border-amber-500/50 bg-amber-500/5' : ''
                       }`}
                     >
-                      {/* --- LAYOUT MOBILE (< sm:): Informações em linha --- */}
                       <div className="flex sm:hidden items-center justify-between gap-3 pr-3">
-                        {/* Imagem */}
                         <div className="w-24 h-24 aspect-square rounded-lg overflow-hidden bg-[#180E0C] shrink-0 border border-[#3F2319]">
                           <img
                             src={item.nft.imageUrl}
@@ -202,7 +194,6 @@ export const CartPage: React.FC = () => {
                           />
                         </div>
 
-                        {/* Nome, edição e preço (em coluna) */}
                         <div className="min-w-0 flex-1 flex flex-col justify-between py-2">
                           <div className="h-12 flex flex-col">
                             <Link
@@ -221,7 +212,6 @@ export const CartPage: React.FC = () => {
                           </span>
                         </div>
 
-                        {/* Botões de quantidade (na direita) */}
                         <div className="flex items-center gap-1.5 shrink-0">
                           <button
                             type="button"
@@ -259,11 +249,8 @@ export const CartPage: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* --- LAYOUT DESKTOP/TABLET (sm:flex) --- */}
                       <div className="hidden sm:flex items-center justify-between gap-4 pr-4 sm:pr-6">
-                        {/* Bloco 1: Imagem + Nome e ID do token */}
                         <div className="flex items-center gap-4 flex-1 min-w-0">
-                          {/* Imagem do produto: quadrada, ocupa 100% da altura */}
                           <div className="w-20 h-20 sm:w-24 sm:h-24 aspect-square rounded-lg overflow-hidden bg-[#180E0C] shrink-0 border border-[#3F2319]">
                             <img
                               src={item.nft.imageUrl}
@@ -272,7 +259,6 @@ export const CartPage: React.FC = () => {
                             />
                           </div>
 
-                          {/* Nome e ID do token em coluna */}
                           <div className="min-w-0 space-y-0.5">
                             <Link
                               to="/nft/$id"
@@ -294,16 +280,13 @@ export const CartPage: React.FC = () => {
                           </div>
                         </div>
 
-                        {/* Bloco 2: Valor da NFT, Botões de quantidade, Total e Lixeira */}
                         <div className="flex items-center justify-end gap-4 sm:gap-6 shrink-0">
-                          {/* Valor da NFT */}
                           <div className="text-center sm:w-[80px] shrink-0">
                             <span className="text-xs sm:text-sm font-semibold text-[#CFB28C]">
                               {formatEth(item.priceEth)}
                             </span>
                           </div>
 
-                          {/* Botões de quantidade */}
                           <div className="flex items-center justify-center gap-2 sm:w-[100px] shrink-0">
                             <button
                               type="button"
@@ -336,14 +319,12 @@ export const CartPage: React.FC = () => {
                             </button>
                           </div>
 
-                          {/* Valor total */}
                           <div className="text-right sm:w-[90px] shrink-0">
                             <span className="text-xs sm:text-base font-extrabold text-[#E89B55]">
                               {formatEth(totalItemPrice)}
                             </span>
                           </div>
 
-                          {/* Ícone de lixeira para excluir o item do carrinho */}
                           <div className="w-7 flex items-center justify-end shrink-0">
                             <button
                               type="button"
@@ -362,7 +343,6 @@ export const CartPage: React.FC = () => {
                 })}
               </div>
 
-              {/* Ação secundária para limpar carrinho */}
               <div className="flex justify-end pt-2">
                 <button
                   type="button"
@@ -374,11 +354,8 @@ export const CartPage: React.FC = () => {
               </div>
             </div>
 
-            {/* ======================================================== */}
-            {/* LADO DIREITO: Resumo da Compra (Apenas Desktop: lg:block) */}
-            {/* ======================================================== */}
+            {/* Resumo da Compra (Apenas Desktop: lg:block) */}
             <div className="hidden lg:block lg:col-span-4 pb-5 space-y-6">
-              {/* Título: resumo da carteira + borda embaixo #D28A4C */}
               <div className="space-y-3">
                 <h2 className="text-lg sm:text-xl font-bold text-[#F7F3EC] tracking-wide">
                   Resumo da carteira
@@ -386,7 +363,6 @@ export const CartPage: React.FC = () => {
                 <div className="w-full border-b border-[#D28A4C]" />
               </div>
 
-              {/* Campo para código promocional */}
               <form onSubmit={handleApplyCoupon} className="space-y-2">
                 <label className="text-xs font-semibold text-[#CFB28C] block">
                   Código promocional
@@ -434,7 +410,6 @@ export const CartPage: React.FC = () => {
 
               {/* Informações da compra, cada item em uma linha */}
               <div className="space-y-3.5 border-t border-[#3F2319] pt-4 text-xs sm:text-sm">
-                {/* Subtotal */}
                 <div className="flex justify-between items-center text-[#CFB28C]">
                   <span>Subtotal</span>
                   <span className="font-semibold text-[#F5F1EB]">
@@ -499,9 +474,7 @@ export const CartPage: React.FC = () => {
           </div>
         )}
 
-        {/* ======================================================== */}
         {/* SEÇÃO: COLECIONADORES TAMBÉM VIRAM (SWIPER) */}
-        {/* ======================================================== */}
         {displayRecommended.length > 0 && (
           <section className="space-y-6 pt-6">
             <h2 className="text-xl sm:text-2xl font-extrabold text-[#E89B55] pb-3 border-b border-[#E89B55] w-full">
@@ -538,9 +511,7 @@ export const CartPage: React.FC = () => {
         )}
       </div>
 
-      {/* ======================================================== */}
       {/* CAMPO FLUTUANTE FIXO NO MOBILE (< lg) */}
-      {/* ======================================================== */}
       {items.length > 0 && (
         <div className="fixed bottom-0 inset-x-0 z-40 bg-[#241612] border-t border-[#3F2319] rounded-4xl p-4 shadow-[0_-8px_24px_rgba(0,0,0,0.6)] lg:hidden space-y-3">
           {/* Campo do cupom: input com border e bordas arredondadas (4xl) e o botão aplicar dentro do input */}

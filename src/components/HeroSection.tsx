@@ -204,4 +204,3 @@ export const HeroSection: React.FC = () => {
     </div>
   );
 };
-

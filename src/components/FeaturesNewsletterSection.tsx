@@ -19,91 +19,71 @@ export const FeaturesNewsletterSection: React.FC = () => {
   return (
     <section className="w-full pt-4">
       <div className="w-full bg-[#241612] p-6 sm:p-8 lg:p-10 shadow-2xl">
-        {/* Grid: 2x2 no mobile com bordas em cruz, 4 colunas no desktop com divisórias laterais */}
         <div className="grid grid-cols-2 lg:grid-cols-4">
-          {/* ======================================================== */}
-          {/* REPARTIÇÃO 1: W - Segurança da carteira */}
-          {/* ======================================================== */}
+          {/* W - Segurança da carteira */}
           <div className="flex flex-col justify-between space-y-4 pr-4 pb-6 lg:pb-0 lg:pr-8 border-r border-b lg:border-b-0 border-[#D28A4C]">
             <div className="space-y-4">
-              {/* Círculo 70x70 na cor #D28A4C com a letra W */}
               <div className="w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] rounded-full bg-[#D28A4C] flex items-center justify-center shrink-0 shadow-lg">
                 <span className="font-extrabold text-2xl sm:text-3xl text-[#140D0A] tracking-wider">
                   W
                 </span>
               </div>
 
-              {/* Título centralizado à esquerda */}
               <h3 className="text-base sm:text-lg font-bold text-[#F5F1EB] text-left leading-tight">
                 Segurança da carteira
               </h3>
 
-              {/* Descrição */}
               <p className="text-xs sm:text-sm text-[#CFB28C] leading-relaxed text-left">
                 Proteja seus colecionáveis digitais com os mais altos padrões de custódia e criptografia.
               </p>
             </div>
           </div>
 
-          {/* ======================================================== */}
-          {/* REPARTIÇÃO 2: C - Criadores em destaque */}
-          {/* ======================================================== */}
+          {/* C - Criadores em destaque */}
           <div className="flex flex-col justify-between space-y-4 pl-4 pb-6 lg:pb-0 lg:px-8 border-b lg:border-b-0 lg:border-r border-[#D28A4C]">
             <div className="space-y-4">
-              {/* Círculo 70x70 na cor #D28A4C com a letra C */}
               <div className="w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] rounded-full bg-[#D28A4C] flex items-center justify-center shrink-0 shadow-lg">
                 <span className="font-extrabold text-2xl sm:text-3xl text-[#140D0A] tracking-wider">
                   C
                 </span>
               </div>
 
-              {/* Título centralizado à esquerda */}
               <h3 className="text-base sm:text-lg font-bold text-[#F5F1EB] text-left leading-tight">
                 Criadores em destaque
               </h3>
 
-              {/* Descrição */}
               <p className="text-xs sm:text-sm text-[#CFB28C] leading-relaxed text-left">
                 Acompanhe coleções originais e artistas emergentes selecionados pela nossa curadoria.
               </p>
             </div>
           </div>
 
-          {/* ======================================================== */}
-          {/* REPARTIÇÃO 3: D - Alertas de lançamentos */}
-          {/* ======================================================== */}
+          {/* D - Alertas de lançamentos */}
           <div className="flex flex-col justify-between space-y-4 pr-4 pt-6 lg:pt-0 lg:px-8 border-r border-[#D28A4C]">
             <div className="space-y-4">
-              {/* Círculo 70x70 na cor #D28A4C com a letra D */}
               <div className="w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] rounded-full bg-[#D28A4C] flex items-center justify-center shrink-0 shadow-lg">
                 <span className="font-extrabold text-2xl sm:text-3xl text-[#140D0A] tracking-wider">
                   D
                 </span>
               </div>
 
-              {/* Título centralizado à esquerda */}
               <h3 className="text-base sm:text-lg font-bold text-[#F5F1EB] text-left leading-tight">
                 Alertas de lançamentos
               </h3>
 
-              {/* Descrição */}
               <p className="text-xs sm:text-sm text-[#CFB28C] leading-relaxed text-left">
                 Receba notificações instantâneas sobre drops exclusivos e eventos de cunhagem prioritária.
               </p>
             </div>
           </div>
 
-          {/* ======================================================== */}
-          {/* REPARTIÇÃO 4: Newsletter */}
-          {/* ======================================================== */}
+          {/* Newsletter */}
           <div className="flex flex-col justify-between space-y-3 pl-4 pt-6 lg:pt-0 lg:pl-8">
             <div className="space-y-3">
-              {/* Título */}
               <h3 className="text-base sm:text-lg font-bold text-[#F5F1EB] text-left leading-tight">
                 Antecipe-se ao próximo lançamento
               </h3>
 
-              {/* Input na cor #38220F e Botão Enviar na cor #D28A4C */}
               <form onSubmit={handleSubmit} className="space-y-2">
                 <div className="flex flex-col md:flex-row relative overflow-hidden md:rounded-xl gap-2">
                   <input
@@ -142,4 +122,3 @@ export const FeaturesNewsletterSection: React.FC = () => {
     </section>
   );
 };
-

@@ -228,4 +228,3 @@ export const CatalogFilters: React.FC<CatalogFiltersProps> = ({
     </div>
   );
 };
-

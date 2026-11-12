@@ -122,7 +122,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
       )}
 
       <div className="p-6 sm:p-8 space-y-5">
-        {/* Topo com opções "Entrar" | "Criar conta" */}
         <div className="flex items-center justify-center gap-3 text-lg sm:text-xl font-bold">
           <button
             type="button"
@@ -155,7 +154,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
           </button>
         </div>
 
-        {/* Mensagem de Erro */}
         {error && (
           <div className="p-3 rounded-lg border border-destructive/50 bg-destructive/10 text-destructive text-xs sm:text-sm flex items-center gap-2">
             <AlertCircle className="h-4 w-4 shrink-0" />
@@ -163,9 +161,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
           </div>
         )}
 
-          {/* ======================================================== */}
           {/* TAB LOGIN */}
-          {/* ======================================================== */}
           {tab === 'login' ? (
             <div className="space-y-4">
               <p className="text-center text-xs sm:text-sm text-[#F5F1EB] leading-relaxed">
@@ -173,7 +169,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
               </p>
 
               <form onSubmit={handleLoginSubmit} className="space-y-3.5">
-                {/* Input de e-mail */}
                 <div>
                   <input
                     type="email"
@@ -185,7 +180,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
                   />
                 </div>
 
-                {/* Input de senha com olho para ver senha */}
                 <div className="relative">
                   <input
                     type={showLoginPassword ? 'text' : 'password'}
@@ -240,16 +234,13 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
               </form>
             </div>
           ) : (
-            /* ======================================================== */
             /* TAB CADASTRO */
-            /* ======================================================== */
             <div className="space-y-4">
               <p className="text-center text-xs sm:text-sm text-[#F5F1EB] leading-relaxed">
                 Crie seu perfil de colecionador e conecte uma carteira quando quiser.
               </p>
 
               <form onSubmit={handleRegisterSubmit} className="space-y-3">
-                {/* Input de nome de usuário */}
                 <div>
                   <input
                     type="text"
@@ -261,7 +252,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
                   />
                 </div>
 
-                {/* Input de email */}
                 <div>
                   <input
                     type="email"
@@ -273,7 +263,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
                   />
                 </div>
 
-                {/* Input de senha */}
                 <div className="relative">
                   <input
                     type={showRegPassword ? 'text' : 'password'}
@@ -297,7 +286,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
                   </button>
                 </div>
 
-                {/* Input de confirmar senha */}
                 <div className="relative">
                   <input
                     type={showRegConfirmPassword ? 'text' : 'password'}
@@ -340,9 +328,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
             </div>
           )}
 
-          {/* ======================================================== */}
           {/* DIVISÓRIA: Borda direita e esquerda #3F2319 e "Ou continue com" */}
-          {/* ======================================================== */}
           <div className="relative flex items-center justify-center pt-2">
             <div className="flex-grow border-t border-[#3F2319]" />
             <span className="shrink-0 px-3 text-xs text-[#CFB28C] font-medium">
@@ -351,9 +337,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
             <div className="flex-grow border-t border-[#3F2319]" />
           </div>
 
-          {/* ======================================================== */}
           {/* BOTÕES DE LOGIN SOCIAL (GOOGLE E FACEBOOK) */}
-          {/* ======================================================== */}
           <div className="space-y-2.5">
             {/* Continuar com o Google */}
             <button
@@ -396,7 +380,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
           </div>
         </div>
 
-        {/* Height de 5px na cor #D28A4C pegando 100% da largura embaixo do modal */}
         <div className="h-[5px] w-full bg-[#D28A4C]" />
       </div>
   );
@@ -404,7 +387,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ initialTab = 'login', onCl
   if (onClose) {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-        {/* Overlay escuro */}
         <div
           className="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity"
           onClick={onClose}

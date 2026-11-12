@@ -73,11 +73,8 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
   return (
     <div className="flex flex-col lg:flex-row gap-8 items-start w-full">
 
-      {/* ======================================================== */}
-      {/* PRIMEIRO COMPONENTE: FILTROS + DESTAQUE (LARGURA ~35% NO DESKTOP, NO MOBILE VAI NO HEADER) */}
-      {/* ======================================================== */}
+      {/* FILTROS + DESTAQUE (LARGURA ~35% NO DESKTOP, NO MOBILE VAI NO HEADER) */}
       <aside className="hidden lg:block w-[25%] max-w-[330px] shrink-0 space-y-6">
-        {/* CONTAINER DE FILTROS */}
         <div className="w-full bg-[#241612] rounded-[16px] p-6 border border-[#3F2319] shadow-xl space-y-6">
           <CatalogFilters
             selectedCategory={selectedCategory}
@@ -90,9 +87,6 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
           />
         </div>
 
-        {/* ======================================================== */}
-        {/* CARD NFT EM DESTAQUE (LOGO ABAIXO DO FILTRO) */}
-        {/* ======================================================== */}
         {featuredNft && (
           <div className="w-full bg-[#241612] rounded-[16px] p-4 border border-[#3F2319] shadow-xl space-y-3">
             <div className="flex flex-col">
@@ -131,13 +125,9 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
         )}
       </aside>
 
-      {/* ======================================================== */}
-      {/* SEGUNDO COMPONENTE: GRID DE CARDS DOS NFTS (AO LADO DO FILTRO) */}
-      {/* ======================================================== */}
+      {/* GRID DE CARDS DOS NFTS (AO LADO DO FILTRO) */}
       <div className="flex-1 min-w-0 space-y-6 w-full">
-        {/* BARRA SUPERIOR: 4 FILTROS EM LINHA + ORDENAR POR */}
         <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between pb-2 border-b border-[#3F2319]">
-          {/* 4 Filtros em linha */}
           <div className="flex items-center gap-2 sm:gap-4 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0">
             {[
               { id: 'all' as const, label: 'Todos os NFTs' },
@@ -277,7 +267,6 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
                     </Link>
                   </div>
 
-                  {/* Informações: Nome do NFT e Preço do NFT com moeda em #E89B55 */}
                   <div className="pt-2 sm:pt-3 px-1 flex flex-col justify-between sm:gap-1">
                     <div className="min-w-0">
                       <Link

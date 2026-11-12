@@ -251,7 +251,6 @@ export const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({
           </a>
         </div>
 
-        {/* Height de 5px na cor #D28A4C na base do modal */}
         <div className="h-[5px] w-full bg-[#D28A4C]" />
       </div>
     </div>

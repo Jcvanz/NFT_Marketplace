@@ -77,7 +77,6 @@ export const BottomNavBar: React.FC = () => {
         className="fixed bottom-3 sm:bottom-4 left-0 right-0 z-40 flex justify-center pointer-events-none px-4"
       >
         <div className="relative w-full max-w-[420px] h-[58px] pointer-events-auto filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)]">
-          {/* Fundo SVG com recorte em onda ("onda para baixo") no centro e bordas arredondadas */}
           <svg
             viewBox="0 0 400 70"
             preserveAspectRatio="none"
@@ -98,7 +97,6 @@ export const BottomNavBar: React.FC = () => {
             />
           </svg>
 
-          {/* Botão circular central flutuando fora do componente no encaixe da onda */}
           <button
             type="button"
             onClick={() => setIsScanModalOpen(true)}
@@ -115,11 +113,9 @@ export const BottomNavBar: React.FC = () => {
             </svg>
           </button>
 
-          {/* Botões da barra de navegação: 2 na esquerda e 2 na direita */}
           <div className="absolute inset-0 flex items-center justify-between px-6">
-            {/* Lado Esquerdo: Home e Favoritos (Coração) */}
+            {/* Home e Favoritos (Coração) */}
             <div className="flex items-center gap-7 sm:gap-9">
-              {/* Botão Home */}
               <button
                 type="button"
                 onClick={handleHomeClick}
@@ -134,7 +130,6 @@ export const BottomNavBar: React.FC = () => {
                 <Home className="w-6 h-6 transition-transform group-hover:scale-110" />
               </button>
 
-              {/* Botão Coração (Favoritos) */}
               <button
                 type="button"
                 onClick={handleFavoritesClick}
@@ -150,12 +145,10 @@ export const BottomNavBar: React.FC = () => {
               </button>
             </div>
 
-            {/* Espaço central vazio para onde o botão de Scan flutua */}
             <div className="w-12 h-12" aria-hidden="true" />
 
-            {/* Lado Direito: Carrinho e Perfil */}
+            {/* Carrinho e Perfil */}
             <div className="flex items-center gap-7 sm:gap-9">
-              {/* Botão Carrinho */}
               <Link
                 to="/cart"
                 className={`relative flex flex-col items-center justify-center p-2 rounded-xl transition-all cursor-pointer group ${
@@ -176,7 +169,6 @@ export const BottomNavBar: React.FC = () => {
                 </div>
               </Link>
 
-              {/* Botão Perfil */}
               <button
                 type="button"
                 onClick={handleProfileClick}
@@ -208,7 +200,6 @@ export const BottomNavBar: React.FC = () => {
             onClick={() => setIsScanModalOpen(false)}
           />
           <div className="relative z-10 w-full max-w-[420px] bg-[#241612] border border-[#3F2319] rounded-2xl shadow-2xl overflow-hidden p-6 text-center space-y-5 animate-in fade-in zoom-in-95 duration-200">
-            {/* Topo do modal */}
             <div className="flex items-center justify-between border-b border-[#3F2319] pb-3">
               <div className="flex items-center gap-2 text-[#E89B55]">
                 <Camera className="w-5 h-5 text-[#D28A4C]" />
@@ -226,12 +217,9 @@ export const BottomNavBar: React.FC = () => {
               </button>
             </div>
 
-            {/* Caixa simulada de scan da câmera */}
             <div className="relative aspect-square w-full max-w-[280px] mx-auto rounded-2xl bg-[#180E0C] border border-[#3F2319] flex items-center justify-center overflow-hidden shadow-inner">
-              {/* Linha animada de laser */}
               <div className="absolute inset-x-0 h-0.5 bg-[#D28A4C] shadow-[0_0_12px_#D28A4C] animate-bounce" />
 
-              {/* Cantos guias */}
               <div className="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-[#D28A4C] rounded-tl" />
               <div className="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-[#D28A4C] rounded-tr" />
               <div className="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-[#D28A4C] rounded-bl" />
@@ -243,12 +231,10 @@ export const BottomNavBar: React.FC = () => {
               </div>
             </div>
 
-            {/* Descrição */}
             <p className="text-xs sm:text-sm text-[#CFB28C] leading-relaxed">
               Posicione o código de autenticação ou QR Code da obra digital dentro do enquadramento.
             </p>
 
-            {/* Botão de simulação rápida */}
             <button
               type="button"
               onClick={() => {
@@ -268,4 +254,3 @@ export const BottomNavBar: React.FC = () => {
 };
 
 export default BottomNavBar;
-

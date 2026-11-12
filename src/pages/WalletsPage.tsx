@@ -174,4 +174,3 @@ export const WalletsPage: React.FC = () => {
 };
 
 export default WalletsPage;
-
