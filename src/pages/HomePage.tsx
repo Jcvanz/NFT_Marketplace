@@ -6,7 +6,6 @@ import { HeroSection } from '../components/HeroSection';
 import { CatalogSection } from '../components/CatalogSection';
 import { InfoCardsSection } from '../components/InfoCardsSection';
 import { JournalSection } from '../components/JournalSection';
-import { FeaturesNewsletterSection } from '../components/FeaturesNewsletterSection';
 import { BottomNavBar } from '../components/BottomNavBar';
 
 export const HomePage: React.FC = () => {
@@ -84,8 +83,6 @@ export const HomePage: React.FC = () => {
       <section id="aprenda" className="scroll-mt-20">
         <JournalSection />
       </section>
-
-      <FeaturesNewsletterSection />
 
       <BottomNavBar />
     </div>
