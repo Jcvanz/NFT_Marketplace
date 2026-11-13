@@ -8,6 +8,8 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import { WalletProvider } from './context/WalletContext';
 import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { routeTree } from './routeTree.gen';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // Cria instância do router TanStack
 export const router = createRouter({
@@ -27,7 +29,13 @@ declare module '@tanstack/react-router' {
 
 function InnerApp() {
   const auth = useAuth();
-  return <RouterProvider router={router} context={{ auth }} />;
+  return (
+    <>
+      <RouterProvider router={router} context={{ auth }} />
+      <Analytics />
+      <SpeedInsights />
+    </>
+  )
 }
 
 async function prepareApp() {
